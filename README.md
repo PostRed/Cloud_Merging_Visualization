@@ -12,9 +12,35 @@
 
 ## Визуализация
 
-Для начала я решила слить первые два облака из папки clouds.
+1. Для начала я решила слить первые два облака из папки clouds.
+   
+   Вот так два облака смотрятся вместе
 
-Вот так два облака смотрятся вместе
+<img src="pictures_merged/clouds_9_12.png">  
 
+2. Теперь нужно повернуть красное облако так, чтобы оно лучше всего подходило к синему
 
-![Image]([https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png](https://github.com/PostRed/Cloud_Merging_Visualization/blob/main/pictures_merged/clouds_9_12.png))
+   Для этого воспользуемся алгоритмом [icp](https://www.open3d.org/docs/latest/python_api/open3d.pipelines.registration.registration_icp.html) который заложен в библиотеку Open3D. Чтобы алгоритм работал максимально корректно подберем наиболее подходящий параметр max_correspondence_distance (threshold). То есть определим максимальное расстояние между точками, чтобы считать их соответствующими.
+
+   для этого переберем threshold в отрезке [0.01, 1] с шагом 0.05.
+
+   [pcd файлы, полученные в результате перебора](https://github.com/PostRed/Cloud_Merging_Visualization/tree/main/thresholds1)
+   
+   [Картинки, полученные в результате перебора](https://github.com/PostRed/Cloud_Merging_Visualization/tree/main/pictures_thresholds1)
+
+   Больше всего нам подгод порог = 0.55, которому соответствует данная картинка:
+
+   (зеленое облако - это результат поворота красного)
+   
+<img src="pictures_thresholds1/cloud_0.56.png">  
+
+3. Теперь посмотрим на исходные облака вместе с повернутым красным:
+
+<img src="pictures_merged/clouds_9_12_merged.png">  
+
+4. И сольем зеленое и синее облако в одно:
+
+<img src="pictures_merged/clouds_9_12_result.png"> 
+   
+
+   
