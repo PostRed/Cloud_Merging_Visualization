@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_CloudVisualization_FILE /Users/anastasiakolomnikova/Documents/GitHub/CloudVisualization/cmake-build-debug/CloudVisualization)
+set(__QT_DEPLOY_TARGET_CloudVisualization_TYPE EXECUTABLE)
