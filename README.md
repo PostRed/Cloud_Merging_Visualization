@@ -40,7 +40,39 @@
 
 4. И сольем зеленое и синее облако в одно:
 
-<img src="pictures_merged/clouds_9_12_result.png"> 
-   
+   [pcd файл](https://github.com/PostRed/Cloud_Merging_Visualization/blob/main/thresholds_final/clouds_9_12.pcd)
 
+<img src="pictures_merged/clouds_9_12_result.png"> 
+
+5. Проделаем тоже самое для оставшихся двух облаков
+
+   Исходные облака:
    
+<img src="pictures_merged/clouds_13_17.pngg"> 
+
+6. Исходные облака вместе с повернутым:
+
+<img src="pictures_merged/clouds_13_17_merged.png"> 
+
+7. Результат слияния облаков:
+
+   [pcd файл](https://github.com/PostRed/Cloud_Merging_Visualization/blob/main/thresholds_final/clouds_13_17.pcd)
+   
+<img src="pictures_merged/clouds_13_17_result.png"> 
+
+8. Повторим алгоритм для двух результатов слияния
+
+   Исходные облака:
+   
+<img src="pictures_merged/clouds_all.png">
+
+10. Исходные облака + повернутое:
+<img src="pictures_merged/clouds_all_merged.png">
+
+12. Результат:
+
+    [pcd файл](https://github.com/PostRed/Cloud_Merging_Visualization/blob/main/thresholds_final/clouds_all.pcd)
+<img src="pictures_merged/clouds_all_result.png">
+
+14. А вот так все облака выглядели изначально:
+<img src="pictures_merged/clouds_all_before_result.png"> 
