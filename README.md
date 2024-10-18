@@ -1,6 +1,6 @@
 # Слияние 2D облаков
 ## Проект на C++
-[Тут](https://github.com/PostRed/Cloud_Merging_Visualization/blob/main/CloudVisualization/main.cpp) можно посмотреть мои попытки работы с библиотекой [PCL](https://github.com/PointCloudLibrary/pcl). Сколько бы я не пробовала её переустанавливать на моем ноуте проект не запускался и в конце концов выскочила ошибка, что мое устройство не поддерживает pcl.
+[Тут](https://github.com/PostRed/Cloud_Merging_Visualization/blob/main/CloudVisualization/main.cpp) можно посмотреть мои попытки работы с библиотекой [PCL](https://github.com/PointCloudLibrary/pcl). Сколько бы я не пробовала её переустанавливать на моем ноуте проект не запускался, и в конце концов выскочила ошибка, что мое устройство не поддерживает pcl.
 
 Так как писать алгоритм слияния облаков с нуля времени не было - я решила написать все на Python.
 
@@ -48,7 +48,7 @@
 
    Исходные облака:
    
-<img src="pictures_merged/clouds_13_17.pngg"> 
+<img src="pictures_merged/clouds_13_17.png"> 
 
 6. Исходные облака вместе с повернутым:
 
