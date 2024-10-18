@@ -8,7 +8,16 @@
 #include <pcl/visualization/pcl_visualizer.h>
 
 
-pcl::PointCloud<pcl::PointXYZ> readPCD(const std::string& filename) {
+void loadPCD(const std::string &filename, pcl::PointCloud<PointT>::Ptr cloud) {
+    if (pcl::io::loadPCDFile<PointT>(filename, *cloud) == -1) {
+        PCL_ERROR("Couldn't read file");
+        exit(-1);
+    }
+}
+
+
+// Альтернатива верхнему методу, так как loadPCDFile не работает на маке
+pcl::PointCloud <pcl::PointXYZ> readPCD(const std::string &filename) {
     std::ifstream file(filename);
     std::string line;
     int count = 0;
@@ -24,7 +33,7 @@ pcl::PointCloud<pcl::PointXYZ> readPCD(const std::string& filename) {
             break;
         }
     }
-    pcl::PointCloud<pcl::PointXYZ> cloud;
+    pcl::PointCloud <pcl::PointXYZ> cloud;
     cloud.width = count;
     cloud.height = 1;
     cloud.is_dense = false;
@@ -47,12 +56,16 @@ pcl::PointCloud<pcl::PointXYZ> readPCD(const std::string& filename) {
 }
 
 int main() {
-    pcl::PointCloud<pcl::PointXYZ> cloud1 = readPCD("../clouds/cloud_9.pcd");
-    pcl::PointCloud<pcl::PointXYZ> cloud2 = readPCD("../clouds/cloud_12.pcd");
-    pcl::PointCloud<pcl::PointXYZ> cloud3 = readPCD("../clouds/cloud_13.pcd");
-    pcl::PointCloud<pcl::PointXYZ> cloud4 = readPCD("../clouds/cloud_17.pcd");
-    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+    pcl::PointCloud <pcl::PointXYZ> cloud1 = readPCD("../clouds/cloud_9.pcd");
+    pcl::PointCloud <pcl::PointXYZ> cloud2 = readPCD("../clouds/cloud_12.pcd");
+    pcl::PointCloud <pcl::PointXYZ> cloud3 = readPCD("../clouds/cloud_13.pcd");
+    pcl::PointCloud <pcl::PointXYZ> cloud4 = readPCD("../clouds/cloud_17.pcd");
 
-
+    // Код ниже тоже не работает на моем маке
+    pcl::IterativeClosestPoint <pcl::PointXYZ, pcl::PointXYZ> icp;
+    pcl::PointCloud <PointT> aligned_cloud;
+    icp.setInputSource(cloud1);
+    icp.setInputTarget(cloud2);
+    icp.align(aligned_cloud);
     return 0;
 }
